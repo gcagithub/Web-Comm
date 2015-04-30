@@ -1,0 +1,57 @@
+<div>
+	<blockquote>
+		<h2>Vk.com page</h2>
+		<footer><a href="/vkauth" target="_vkauth">Login to Vk.com...</a></footer>
+		<p>After logining return back, please, and enter User code bellow.</p>
+	</blockquote>
+</div>
+
+<form role="form" novalidate
+              class="ng-scope ng-invalid ng-invalid-required ng-dirty"
+              ng-submit="save()">
+
+	<div class="form-group">
+        <label>Enter responded code, please:</label>
+        
+        <input type="text" class="form-control" ng-model="formUserCode.codeId" name="codeId" />
+	</div>
+
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+
+</form>
+
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Online</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr ng-repeat="f in vkFriends">
+				<td>{{f.id}}</td>
+				<td>{{f.first_name}}</td>
+				<td>{{f.last_name}}</td>
+				<td>{{f.online}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<form class="ng-scope" ng-submit="sendWallText()">
+	<div class="form-group">
+		<label for="">Place text on a wall:</label>
+		<textarea class="form-control" ng-model="formWallText.wallText" name="wallText" />
+	</div>
+	<div class="modal-footer"><button class="btn btn-primary" type="submit">Send text</button></div>
+</form>
+
+<button class="btn btn-primary" type="submit" ng-click="displayLastMessage()">Show last message</button>
+<p>{{lastVkMessage}}</p>
+

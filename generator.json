@@ -1,0 +1,54 @@
+{
+	"baseName": "angspark1",
+	"packageName": "ru.darout.webcom",
+	"entities": [
+		{
+			"name": "myentity",
+			"attrs": [
+				{
+					"attrName": "myattr",
+					"attrType": "String",
+					"minLength": "3",
+					"maxLength": "10",
+					"enumValues": [],
+					"required": true
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"attrs": [
+				{
+					"attrName": "id",
+					"attrType": "String",
+					"minLength": "",
+					"maxLength": "",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "title",
+					"attrType": "String",
+					"minLength": "",
+					"maxLength": "",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "done",
+					"attrType": "Boolean",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "createdOn",
+					"attrType": "Date",
+					"dateConstraint": "",
+					"enumValues": [],
+					"required": true
+				}
+			]
+		}
+	],
+	"resources": []
+}

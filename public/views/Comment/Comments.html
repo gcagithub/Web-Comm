@@ -1,0 +1,115 @@
+<div>
+
+    <h2>Comments</h2>
+
+    <script type = "text/ng-template" id="Comment-save.html">
+        <form name="form" role="form" novalidate
+              class="ng-scope ng-invalid ng-invalid-required ng-dirty"
+              ng-submit="ok()">
+
+            <div class="modal-header">
+                <button type="button" class="close"
+                        ng-click="cancel()">&times;</button>
+                <h4 class="modal-title" id="myCommentLabel">Create or edit a Comment</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>ID</label>
+                    <input type="text" class="form-control" name="id"
+                           ng-model="Comment.id" readonly>
+                </div>
+
+                
+                <div class="form-group">
+                    <label>id:</label>
+                    
+                    <input type="text" class="form-control" name="id"
+                           ng-model="Comment.id" ng-required="true"
+                           />
+                    <span class="error" ng-show="form.id.$error.minlength">Must be at least  characters.</span>
+                    <span class="error" ng-show="form.id.$error.maxlength">Must be at most  characters.</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>title:</label>
+                    
+                    <input type="text" class="form-control" name="title"
+                           ng-model="Comment.title" ng-required="true"
+                           />
+                    <span class="error" ng-show="form.title.$error.minlength">Must be at least  characters.</span>
+                    <span class="error" ng-show="form.title.$error.maxlength">Must be at most  characters.</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>done:</label>
+                    
+                    <input type="checkbox" name="done"
+                           ng-model="Comment.done" ng-required="true"/>
+                </div>
+                
+                <div class="form-group">
+                    <label>createdOn:</label>
+                    
+                    <input type="text" class="form-control" name="createdOn" ui-date="createdOnDateOptions" ui-date-format="yy-mm-dd" 
+                           ng-model="Comment.createdOn" ng-required="true"/>
+                </div>
+                
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="cancel()">Cancel
+                </button>
+                <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </script>
+
+    <button class="btn btn-primary btn-lg" ng-click="create()">
+        <span class="glyphicon glyphicon-flash"></span> Create a new Comment
+    </button>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                
+                <th>id</th>
+                
+                <th>title</th>
+                
+                <th>done</th>
+                
+                <th>createdOn</th>
+                
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="Comment in Comments">
+                <td>{{Comment.id}}</td>
+                
+                <td>{{Comment.id }}</td>
+                
+                <td>{{Comment.title }}</td>
+                
+                <td>{{Comment.done }}</td>
+                
+                <td>{{Comment.createdOn  | date:'yyyy-MM-dd'}}</td>
+                
+                <td>
+                    <button type="submit"
+                            ng-click="update(Comment.id)"
+                            class="btn">
+                        <span class="glyphicon glyphicon-pencil"></span> Edit
+                    </button>
+                    <button type="submit"
+                            ng-click="delete(Comment.id)"
+                            class="btn btn-danger">
+                        <span class="glyphicon glyphicon-remove-circle"></span> Delete
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
