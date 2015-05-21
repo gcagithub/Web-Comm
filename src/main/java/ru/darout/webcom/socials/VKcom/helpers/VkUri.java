@@ -80,14 +80,5 @@ public class VkUri{
                 "access_token=" + authToken.getAccessToken();
     }
 
-    public static Map<String, String> getUriQuery(String uri) throws DecoderException, URISyntaxException, UnsupportedEncodingException{
-    	Map<String, String> queryPair = new HashMap<String, String>();
-    	String decodedUri = URLDecoder.decode(uri, "UTF-8").replace("#", "?");
-    	for(NameValuePair pair : URLEncodedUtils.parse(new URI(decodedUri), "UTF-8")){
-    		queryPair.put(pair.getName(), pair.getValue());
-    	}
-    	return queryPair;
-    }
-
 }
 

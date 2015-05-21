@@ -2,6 +2,7 @@ package ru.darout.webcom.socials.VKcom.models;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
+import java.net.URLDecoder;
 import java.util.Map;
 
 import org.apache.commons.codec.DecoderException;
@@ -12,6 +13,7 @@ import ru.darout.webcom.socials.VKcom.content.VkOAuthToken;
 import ru.darout.webcom.socials.VKcom.helpers.HttpClientWrapper;
 import ru.darout.webcom.socials.VKcom.helpers.VkUri;
 import ru.darout.webcom.socials.VKcom.models.deserializers.VkAuthTokenDeserializer;
+import ru.darout.webcom.util.URIUtil;
 import spark.Session;
 
 import com.google.gson.GsonBuilder;
@@ -59,7 +61,8 @@ public class VkOAuth extends HttpVkApi {
 	        
 			OAuthToken token = null;
 			try {
-				Map<String, String> queryUriPairs = VkUri.getUriQuery(uri);
+				String decodedUri = URLDecoder.decode(uri, "UTF-8").replace("#", "?");
+				Map<String, String> queryUriPairs = URIUtil.getUriQueries(decodedUri);
 				token = new VkOAuthToken(queryUriPairs.get("access_token"), queryUriPairs.get("expires_in"), queryUriPairs.get("user_id"));
 			} catch (DecoderException | URISyntaxException | UnsupportedEncodingException e) {
 				throw new VkException(e.getMessage());

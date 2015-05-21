@@ -11,9 +11,6 @@ public class VkLoginRouter extends AController {
 	
 	private VkOAuth _vkApi;
 	
-//	public static final ThreadLocal<OAuthToken> VK_OAUTH = new ThreadLocal<OAuthToken>();
-//	public static final String VK_OAUTH = "VK_OAUTH";
-
 	public VkLoginRouter(){
 		_vkApi = new VkOAuth("4890204", "flq2uIeenodAO8anVUcj", "http://oauth.vk.com/blank.html");
 	}

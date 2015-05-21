@@ -83,7 +83,6 @@ angular.module('angspark1')
       };
 
       $scope.ok = function () {
-        alert("Ok!");
         console.log($modalInstance);
         $modalInstance.close($scope.Comment);
       };

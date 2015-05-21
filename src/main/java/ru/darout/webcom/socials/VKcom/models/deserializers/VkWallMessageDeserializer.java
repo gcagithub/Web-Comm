@@ -1,9 +1,6 @@
 package ru.darout.webcom.socials.VKcom.models.deserializers;
 
-import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
 
 import ru.darout.webcom.socials.VKcom.content.VkWallMessage;
 
