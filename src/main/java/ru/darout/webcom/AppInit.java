@@ -8,7 +8,9 @@ import java.util.Optional;
 import org.eclipse.jetty.server.session.SessionHandler;
 
 import ru.darout.webcom.controllers.CommentRouter;
+import ru.darout.webcom.controllers.ImgCommentRouter;
 import ru.darout.webcom.models.Commentator;
+import ru.darout.webcom.models.ImgCommModel;
 import ru.darout.webcom.socials.VKcom.controllers.VkLoginRouter;
 import ru.darout.webcom.socials.VKcom.controllers.VkWallRouter;
 import ru.darout.webcom.socials.facebook.controllers.FBDefaultRouter;
@@ -72,6 +74,8 @@ public class AppInit {
 		new TWLoginRouter().setupEndpoints();
 		new TWDefaultRouter().setupEndpoints();
 		new TWTwittRouter().setupEndpoints();
+		
+		new ImgCommentRouter(new ImgCommModel(MongoUtil.getMongoDB()));
 	}
 
 	private void simpleController() {

@@ -62,7 +62,7 @@ public class VkOAuth extends HttpVkApi {
 			OAuthToken token = null;
 			try {
 				String decodedUri = URLDecoder.decode(uri, "UTF-8").replace("#", "?");
-				Map<String, String> queryUriPairs = URIUtil.getUriQueries(decodedUri);
+				Map<String, String> queryUriPairs = URIUtil.getEncordedQueryParams(decodedUri);
 				token = new VkOAuthToken(queryUriPairs.get("access_token"), queryUriPairs.get("expires_in"), queryUriPairs.get("user_id"));
 			} catch (DecoderException | URISyntaxException | UnsupportedEncodingException e) {
 				throw new VkException(e.getMessage());

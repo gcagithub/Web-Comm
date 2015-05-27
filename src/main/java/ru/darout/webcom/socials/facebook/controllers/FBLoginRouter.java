@@ -45,7 +45,7 @@ public class FBLoginRouter extends AController{
 		String url = request.queryParams("url");
 		Map<String, String> queries = new HashMap<String, String>();
 		try {
-			queries = URIUtil.getUriQueries(url.replaceFirst("#", ""));
+			queries = URIUtil.getEncordedQueryParams(url.replaceFirst("#", ""));
 		} catch (UnsupportedEncodingException | DecoderException
 				| URISyntaxException e1) {
 			System.err.println(e1);

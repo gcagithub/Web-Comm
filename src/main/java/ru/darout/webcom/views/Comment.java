@@ -3,9 +3,6 @@ package ru.darout.webcom.views;
 import java.util.Date;
 import java.util.Optional;
 
-import javax.persistence.*;
-
-import org.bson.types.ObjectId;
 import org.joda.time.LocalDate;
 
 import com.mongodb.BasicDBObject;
