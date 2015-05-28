@@ -1,28 +1,12 @@
 package ru.darout.webcom.controllers;
 
-import java.net.URI;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.Spliterator;
-import java.util.stream.Stream;
-
-import org.apache.commons.codec.net.URLCodec;
-import org.apache.http.client.utils.URLEncodedUtils;
-
-import com.fasterxml.jackson.databind.deser.std.StringArrayDeserializer;
-import com.mongodb.util.StringParseUtil;
 
 import ru.darout.webcom.models.ImgCommModel;
 import ru.darout.webcom.util.JsonTransformer;
 import ru.darout.webcom.util.URIUtil;
-import ru.darout.webcom.views.ImgComment;
-import spark.QueryParamsMap;
 import spark.Spark;
-import spark.utils.StringUtils;
 
 public class ImgCommentRouter extends AController {
 	
